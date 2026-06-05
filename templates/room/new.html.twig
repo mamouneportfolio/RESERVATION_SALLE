@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle salle{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Ajouter une nouvelle salle</h1>
+    
+    {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.capacity) }}
+            {{ form_widget(form.capacity) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.floor) }}
+            {{ form_widget(form.floor) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.equipment) }}
+            {{ form_widget(form.equipment) }}
+            <small class="form-text text-muted">Exemple: Vidéoprojecteur, Tableau blanc, Wi-Fi</small>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Créer</button>
+        <a href="{{ path('app_room_index') }}" class="btn btn-secondary">Annuler</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle réservation{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Réserver une salle</h1>
+    
+    {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_label(form.room) }}
+            {{ form_widget(form.room, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.startDate) }}
+            {{ form_widget(form.startDate, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_label(form.endDate) }}
+            {{ form_widget(form.endDate, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Réserver</button>
+        <a href="{{ path('app_reservation_index') }}" class="btn btn-secondary">Annuler</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

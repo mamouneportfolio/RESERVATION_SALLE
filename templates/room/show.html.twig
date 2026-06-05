@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la salle{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>{{ room.name }}</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Informations</h5>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Nom :</strong> {{ room.name }}</li>
+                <li class="list-group-item"><strong>Capacité :</strong> {{ room.capacity }} personnes</li>
+                <li class="list-group-item"><strong>Étage :</strong> {{ room.floor }}e étage</li>
+                <li class="list-group-item">
+                    <strong>Équipements :</strong><br>
+                    {% if room.equipment %}
+                        <ul>
+                            {% for item in room.equipment %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        Aucun équipement spécifié
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="mt-3">
+        <a href="{{ path('app_room_edit', {'id': room.id}) }}" class="btn btn-warning">Modifier</a>
+        <a href="{{ path('app_room_index') }}" class="btn btn-secondary">Retour à la liste</a>
+    </div>
+</div>
+{% endblock %}

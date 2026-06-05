@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4">Bienvenue sur l'application de réservation de salles</h1>
+        <p class="lead">Gérez facilement vos réservations de salles de réunion</p>
+        
+        {% if not app.user %}
+            <div class="mt-4">
+                <a href="{{ path('app_register') }}" class="btn btn-primary btn-lg">S'inscrire</a>
+                <a href="{{ path('app_login') }}" class="btn btn-secondary btn-lg">Se connecter</a>
+            </div>
+        {% else %}
+            <div class="mt-4">
+                <a href="{{ path('app_dashboard') }}" class="btn btn-success btn-lg">Accéder au tableau de bord</a>
+                <a href="{{ path('app_reservation_new') }}" class="btn btn-primary btn-lg">Réserver une salle</a>
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">📅 Réservation facile</h5>
+                    <p class="card-text">Réservez vos salles en quelques clics</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">🏛️ Gestion des salles</h5>
+                    <p class="card-text">Consultez toutes les salles disponibles</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">⚡ Rapide et efficace</h5>
+                    <p class="card-text">Gérez vos réservations en temps réel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
